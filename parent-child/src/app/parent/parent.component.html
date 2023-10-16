@@ -1,0 +1,9 @@
+<div class="container">
+<p>parent works!</p>
+<input type="text" name="vinoth" [(ngModel)]="data">
+<!-- <button type="submit">submit</button> -->
+<br><br>
+<div>{{data}}</div>
+</div>
+<div>{{'childData : '+childDataa}}</div>
+<app-child (cdata)="receive($event)" [send]="data"></app-child>

@@ -1,0 +1,19 @@
+<!-- <p>websock works!</p> -->
+<div class="container">
+<form [formGroup]="form" >
+    <input type="text" name="name" formControlName="namee" >
+    <button type="submit" (click)="onSend()">send</button>
+</form>
+
+<div class="container">
+    <ul>
+        <li *ngFor="let message of messages">{{message.id }} {{ message.content}} &nbsp;
+        <form [formGroup]="formm">
+            <span class=""><input type="text" formControlName="nameee" ></span>    
+            <span ><button type="submit" (click)="update(message)">update</button></span>
+            <span ><button type="submit" (click)="delete(message)">Delete</button></span>
+        </form>
+        </li>
+    </ul>
+</div>
+</div>

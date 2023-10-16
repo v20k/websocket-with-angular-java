@@ -1,0 +1,33 @@
+<div>Hello {{ name }}</div>
+
+<div>
+  <h1>Form</h1>
+  <form [formGroup]="form" (ngSubmit)="submit(form)">
+    <div>
+      <label for="na">Name</label><br />
+      <input type="text" id="na" name="Namee" formControlName="vin" />
+      <div *ngIf="vinoth?.invalid && vinoth?.touched">invalid</div>
+      <span
+        *ngIf="
+          form.get('vin')?.hasError('required') && form.get('vin')?.touched
+        "
+        >Error(required)</span
+      >
+    </div>
+
+    <pre></pre>
+    <div>
+      <label for="ema">Email</label><br />
+      <input type="text" id="ema" name="Emaill" formControlName="vas" />
+    </div>
+
+    <pre></pre>
+    <div>
+      <label for="pas">Password</label><br />
+      <input type="text" id="pas" name="Passwordd" formControlName="siv" />
+    </div>
+
+    <pre></pre>
+    <button type="submit" [disabled]="!form.valid">save</button>
+  </form>
+</div>

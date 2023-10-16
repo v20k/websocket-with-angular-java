@@ -1,0 +1,111 @@
+<div class="container">
+  <h1>Form</h1>
+  <form [formGroup]="form">
+    <!-- (ngSubmit)="submit()" -->
+    <div>
+      <input
+        type="text"
+        name=""
+        id=""
+        placeholder="User Name"
+        formControlName="namee"
+      />
+    </div>
+    <!-- nameee('namee')?.hasError('required') && form.get('namee')?.touched -->
+    <span *ngIf="nameee('namee')?.invalid && nameee('namee')?.touched"
+      >Invalid</span
+    >
+    <pre></pre>
+    <div>
+      <input type="email" placeholder="User Email" formControlName="emaill" />
+    </div>
+    <span *ngIf="nameee('emaill')?.invalid && nameee('emaill')?.touched"
+      >Invalid</span
+    >
+    <pre></pre>
+    <div>
+      <input
+        type="text"
+        placeholder="Enter your phone Number"
+        formControlName="phoneNumberr"
+      />
+    </div>
+    <!-- nameee('phoneNumber')?.hasError('required') && nameee('phoneNumber')?.touched -->
+    <span
+      *ngIf="nameee('phoneNumberr')?.invalid && nameee('phoneNumberr')?.touched"
+      >Invalid</span
+    >
+    <pre></pre>
+    <div>
+      City
+      <select formControlName="cityy">
+        <optgroup label="North">
+          <option>chennai</option>
+          <option>thiruvallur</option>
+        </optgroup>
+        <optgroup label="south">
+          <option>kanniyakumari</option>
+          <option>tirunelveli</option>
+        </optgroup>
+      </select>
+    </div>
+    <span *ngIf="cityField.invalid && cityField.touched">Invalid</span>
+    <pre></pre>
+    <div>
+      <input
+        type="password"
+        placeholder="Enter your password"
+        formControlName="passwordd"
+      />
+    </div>
+    <!-- nameee('passwordd')?.hasError('required') && nameee('passwordd')?.touched -->
+    <span *ngIf="nameee('passwordd')?.invalid && nameee('passwordd')?.touched"
+      >Invalid</span
+    >
+    <pre></pre>
+    <div>
+      <input
+        type="password"
+        placeholder="Re-enter your password"
+        formControlName="reenterPasswordd"
+      />
+    </div>
+    <span
+      *ngIf="
+        nameee('reenterPasswordd')?.invalid &&
+        nameee('reenterPasswordd')?.touched
+      "
+      >Invalid
+    </span>
+    <div
+      *ngIf="
+        !(nameee('reenterPasswordd')?.value == nameee('passwordd')?.value) &&
+        nameee('reenterPasswordd')?.touched
+      "
+    >
+      <!-- {{ nameee("passwordd")?.value }} -->
+      <!-- {{ nameee("reenterPasswordd")?.value }} -->
+      Password doesn't match
+    </div>
+    <pre></pre>
+    <div>
+      <input type="checkbox" id="chec" formControlName="formCheck" /> &nbsp;
+      <label for="chec">Check </label>
+    </div>
+    <pre></pre>
+
+    <div>
+      <button
+        type="submit"
+        [disabled]="!form.valid"
+        [routerLink]="['/formrouterlink']"
+        [queryParams]="form.value"
+      >
+        save
+        <!-- <a [routerLink]="['/formrouterlink']" [queryParams]="form.value"
+          >save</a
+        > -->
+      </button>
+    </div>
+  </form>
+</div>
